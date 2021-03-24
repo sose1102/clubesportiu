@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class ClassificacioDAO {
+public class ClassificacioDao {
 
     private JdbcTemplate jdbcTemplate;
 
