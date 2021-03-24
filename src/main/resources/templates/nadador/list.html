@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestionar Nadadors</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+<h1>Llista de Nadadors</h1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Num. Federat</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Pais</th>
+        <th scope="col"v>Edat</th>
+        <th scope="col">Gènere</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="nadador: ${nadadors}">
+        <td th:text="${nadador.numFederat}"></td>
+        <td th:text="${nadador.nom}"></td>
+        <td th:text="${nadador.pais}"></td>
+        <td th:text="${nadador.edat}"></td>
+        <td th:text="${nadador.genere}"></td>
+        <td><a th:href="@{/nadador/update/{nom}(nom=${nadador.nom})}"><button type="button" class="btn btn-warning">Edita</button></a>
+        </td>
+        <td><a th:href="@{/nadador/delete/{nom}(nom=${nadador.nom})}"><button type="button" class="btn btn-danger">Esborra</button></a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="add"><button type="button" class="btn btn-success">Afegeix nadador</button></a>
+</body>
+</html>
