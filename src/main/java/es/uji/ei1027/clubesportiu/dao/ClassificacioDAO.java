@@ -64,5 +64,5 @@ public class ClassificacioDAO {
             return new ArrayList<Classificacio>();
         }
     }
-//hola bon dia
+    //hola bon dia
 }
