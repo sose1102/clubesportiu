@@ -58,7 +58,7 @@ public class ClassificacioDao {
     /* Obté totes les classificacions. Torna una llista buida si no n'hi ha cap. */
     public List<Classificacio> getClassificacions() {
         try {
-            return jdbcTemplate.query("SELECT * from Classificacio",
+            return jdbcTemplate.query("SELECT * FROM Classificacio",
                     new ClassificacioRowMapper());
         } catch (EmptyResultDataAccessException e) {
             return new ArrayList<Classificacio>();

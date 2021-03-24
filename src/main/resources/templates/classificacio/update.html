@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Actualitza un classificacio</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+<h2>Actualitza classificacio</h2>
+<form action="#" th:action="@{/classificacio/update}"
+      th:object="${classificacio}" method="post">
+    <table>
+        <tr>
+            <td><label>Nom</label></td>
+            <td><input type="text" th:field="*{nomProva}" /></td>
+        </tr>
+        <tr>
+            <td><label>Nom prova</label></td>
+            <td><input type="text" th:field="*{nomProva}" /></td>
+        </tr>
+        <tr>
+            <td><label>Posicio</label></td>
+            <td><input type="text" th:field="*{posicio}" /></td>
+        </tr>
+        <tr>
+            <td><label>temps</label></td>
+            <td><input type="number" th:field="*{temps}" /></td>
+        </tr>
+        <tr>
+            <td> <a th:href="@{/classificacio/update/{nom}/{nomProva}(nom=${classificacio.nomNadador}, nomProva=${classificacio.nomProva})}" class="btn btn-warning" role="button">Edita</a></td>
+            <td><a th:href="@{/classificacio/delete/{nom}/{nomProva}(nom=${classificacio.nomNadador},nomProva=${classificacio.nomProva})}" class="btn btn-danger" role="button">Esborra</a></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
