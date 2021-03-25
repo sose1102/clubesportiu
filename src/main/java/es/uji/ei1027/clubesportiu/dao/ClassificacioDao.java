@@ -47,8 +47,7 @@ public class ClassificacioDao {
     /* Obté la classificacio amb el nom donat. Torna null si no existeix. */
     public Classificacio getClassificacio(String nomNadador, String nomProva) {
         try {
-            return jdbcTemplate.queryForObject("SELECT * from Classificacio WHERE nom_nadador=? and nom_prova=?",
-                    new ClassificacioRowMapper(), nomNadador, nomProva);
+            return jdbcTemplate.queryForObject("SELECT * from Classificacio WHERE nom_nadador=? and nom_prova=?", new ClassificacioRowMapper(), nomNadador, nomProva);
         }
         catch(EmptyResultDataAccessException e) {
             return null;

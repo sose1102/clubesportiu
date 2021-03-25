@@ -46,9 +46,9 @@ public class ClassificacioController {
         return "redirect:list";
     }
 
-    @RequestMapping(value="/update/{nom}", method = RequestMethod.GET)
-    public String editClassificacio(Model model, @PathVariable String nNadador, @PathVariable String nProva) {
-        model.addAttribute("classificacio", classificacioDao.getClassificacio(nNadador,nProva));
+    @RequestMapping(value="/update/{nom}/{nomProva}", method = RequestMethod.GET)
+    public String editClassificacio(Model model, @PathVariable String nom, @PathVariable String nomProva) {
+        model.addAttribute("classificacio", classificacioDao.getClassificacio(nom,nomProva));
         return "classificacio/update";
     }
 
@@ -57,7 +57,7 @@ public class ClassificacioController {
             @ModelAttribute("classificacio") Classificacio classificacio,
             BindingResult bindingResult) {
         if (bindingResult.hasErrors())
-            return "nadador/update";
+            return "classificacio/update";
         classificacioDao.updateClassificacio(classificacio);
         return "redirect:list";
     }

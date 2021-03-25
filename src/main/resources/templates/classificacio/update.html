@@ -12,24 +12,15 @@
       th:object="${classificacio}" method="post">
     <table>
         <tr>
-            <td><label>Nom</label></td>
-            <td><input type="text" th:field="*{nomProva}" /></td>
-        </tr>
-        <tr>
-            <td><label>Nom prova</label></td>
-            <td><input type="text" th:field="*{nomProva}" /></td>
-        </tr>
-        <tr>
             <td><label>Posicio</label></td>
             <td><input type="text" th:field="*{posicio}" /></td>
         </tr>
         <tr>
             <td><label>temps</label></td>
-            <td><input type="number" th:field="*{temps}" /></td>
+            <td><input type="time" th:field="*{temps}" /></td>
         </tr>
         <tr>
-            <td> <a th:href="@{/classificacio/update/{nom}/{nomProva}(nom=${classificacio.nomNadador}, nomProva=${classificacio.nomProva})}" class="btn btn-warning" role="button">Edita</a></td>
-            <td><a th:href="@{/classificacio/delete/{nom}/{nomProva}(nom=${classificacio.nomNadador},nomProva=${classificacio.nomProva})}" class="btn btn-danger" role="button">Esborra</a></td>
+            <td colspan="2"><input type="submit" value="Actualitza la classificacio" /></td>
         </tr>
     </table>
 </form>
