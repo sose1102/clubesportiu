@@ -63,7 +63,7 @@ public class ClassificacioController {
     }
 
     @RequestMapping(value = "/delete/{nNadador}/{nProva}")
-    public String processDeleteClassif(@PathVariable String nNadador,
+    public String processDeleteClassificacio(@PathVariable String nNadador,
                                        @PathVariable String nProva) {
         classificacioDao.deleteClassificacio(nNadador, nProva);
         return "redirect:../../list";
