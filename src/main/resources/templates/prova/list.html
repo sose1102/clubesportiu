@@ -14,6 +14,7 @@
         <th scope="col">Descripció</th>
         <th scope="col">Tipus</th>
         <th scope="col">Data</th>
+        <th scope="col">Nadadors</th>
         <th></th>
         <th></th>
     </tr>
@@ -24,6 +25,7 @@
         <td th:text="${prova.descripcio}"></td>
         <td th:text="${prova.tipus}"></td>
         <td th:text="${prova.data}"></td>
+        <td><a th:href="@{/classificacio/perpais/{nomProva}(nomProva = ${prova.nom})}"><button type="button">Per país</button></a></td>
         <td><a th:href="@{/prova/update/{nom}(nom=${prova.nom})}"><button type="button" class="btn btn-warning">Edita</button></a>
         </td>
         <td><a th:href="@{/prova/delete/{nom}(nom=${prova.nom})}"><button type="button" class="btn btn-danger">Esborra</button></a>

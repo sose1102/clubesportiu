@@ -76,4 +76,10 @@ public class ClassificacioController {
         return "classificacio/perpais";
     }
 
+    @RequestMapping("/perpais/{nomProva}")
+    public String nadadorsPerPais(Model model, @PathVariable String nomProva){
+        model.addAttribute("classificacions", classificacioService.getClassificationByCountry(nomProva));
+        model.addAttribute("nomProva", nomProva);
+        return "classificacio/perpais";
+    }
 }
