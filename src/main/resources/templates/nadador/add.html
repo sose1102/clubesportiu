@@ -4,17 +4,18 @@
 <head>
     <title>Crear nou Nadador</title>
     <meta charset="UTF-8" />
-    <link rel="stylesheet"     href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/natacio.css" th:href="@{/css/natacio.css}"/>
 </head>
 <body>
 <h2>Nou nadador</h2>
 <form action="#" th:action="@{/nadador/add}"
       th:object="${nadador}" method="post">
     <table>
-        <tr>
+    <tr>
             <td><label>Nom</label></td>
             <td><input type="text" th:field="*{nom}" /></td>
-            <td th:if="${#fields.hasErrors('nom')}" maxlength="50" th:errors="*{nom}"></td>
+            <td th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}" class="error"/>
         </tr>
         <tr>
             <td><label>Num. Federat</label></td>
