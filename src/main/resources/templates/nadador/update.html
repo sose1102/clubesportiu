@@ -13,23 +13,31 @@
     <table>
         <tr>
             <td><label>Nom</label></td>
-            <td><input type="text" th:field="*{nom}" /></td>
+            <td><input type="text" readonly="readonly" th:field="*{nom}" /></td>
         </tr>
         <tr>
             <td><label>Num. Federat</label></td>
-            <td><input type="text" th:field="*{numFederat}" /></td>
+            <td><input type="text" maxlength="10" th:field="*{numFederat}" /></td>
         </tr>
         <tr>
             <td><label>Pais</label></td>
-            <td><input type="text" th:field="*{pais}" /></td>
+            <td><input type="text" maxlength="20" th:field="*{pais}" /></td>
         </tr>
         <tr>
             <td><label>Edat</label></td>
             <td><input type="number" th:field="*{edat}" /></td>
+            <td th:if="${#fields.hasErrors('edat')}" th:errors="*{edat}"></td>
         </tr>
         <tr>
             <td><label>Genere</label></td>
-            <td><input type="text" th:field="*{genere}" /></td>
+            <td> <select class="form_control" type="text" th:field="*{genere}">
+                <option th:each="gendervalue : ${genderList}"
+                        th:value="${gendervalue}"
+                        th:text="${gendervalue}"></option>
+            </select>
+            </td>
+            <td th:if="${#fields.hasErrors('genere')}" th:errors="*{genere}"></td>
+
         </tr>
         <tr>
             <td colspan="2"><input type="submit" value="Actualitza nadador" /></td>

@@ -24,7 +24,7 @@
         <td th:text="${prova.nom}"></td>
         <td th:text="${prova.descripcio}"></td>
         <td th:text="${prova.tipus}"></td>
-        <td th:text="${prova.data}"></td>
+        <td th:text="${#temporals.format(prova.data,'dd/MM/yyyy')}"></td>
         <td><a th:href="@{/classificacio/perpais/{nomProva}(nomProva = ${prova.nom})}"><button type="button">Per país</button></a></td>
         <td><a th:href="@{/prova/update/{nom}(nom=${prova.nom})}"><button type="button" class="btn btn-warning">Edita</button></a>
         </td>

@@ -14,24 +14,30 @@
         <tr>
             <td><label>Nom</label></td>
             <td><input type="text" th:field="*{nom}" /></td>
-            <td th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"></td> ①
+            <td th:if="${#fields.hasErrors('nom')}" maxlength="50" th:errors="*{nom}"></td>
         </tr>
         <tr>
             <td><label>Num. Federat</label></td>
-            <td><input type="text" th:field="*{numFederat}" /></td>
+            <td><input type="text" maxlength="10" th:field="*{numFederat}" /></td>
         </tr>
         <tr>
             <td><label>Pais</label></td>
-            <td><input type="text" th:field="*{pais}" /></td>
+            <td><input type="text" maxlength="20" th:field="*{pais}" /></td>
         </tr>
         <tr>
             <td><label>Edat</label></td>
             <td><input type="number" th:field="*{edat}" /></td>
-            <td th:if="${#fields.hasErrors('edat')}" th:errors="*{edat}"></td> ②
+            <td th:if="${#fields.hasErrors('edat')}" th:errors="*{edat}"></td>
         </tr>
         <tr>
             <td><label>Gènere</label></td>
-            <td><input type="text" th:field="*{genere}" /></td>
+            <td><select class="form_control" type="text" th:field="*{genere}">
+                <option value="No seleccionat">Selecciona el gènere</option>
+                <option value="Femeni">Femeni</option>
+                <option value="Masculi">Masculi</option>
+            </select>
+            </td>
+            <td th:if="${#fields.hasErrors('genere')}" th:errors="*{genere}"></td>
         </tr>
         <tr>
             <td colspan="2"><input type="submit" value="Afegeix nadador" /></td>
