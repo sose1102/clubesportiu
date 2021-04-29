@@ -54,7 +54,6 @@ public class ClassificacioController {
         }
         return "redirect:list";
     }*/
-
     @RequestMapping(value="/add", method=RequestMethod.POST)
     public String processAddClassif(
             @ModelAttribute("classificacio") Classificacio classificacio,
@@ -74,15 +73,14 @@ public class ClassificacioController {
         return "redirect:list";
     }
 
-
-    @RequestMapping(value="/add", method= RequestMethod.POST)
+    /*@RequestMapping(value="/add", method= RequestMethod.POST)
     public String processAddSubmit(@ModelAttribute("classificacio") Classificacio classificacio,
                                    BindingResult bindingResult) {
         if (bindingResult.hasErrors())
             return "classificacio/add";
         classificacioDao.addClassificacio(classificacio);
         return "redirect:list";
-    }
+    }*/
 
     @RequestMapping(value="/update/{nom}/{nomProva}", method = RequestMethod.GET)
     public String editClassificacio(Model model, @PathVariable String nom, @PathVariable String nomProva) {
@@ -121,7 +119,6 @@ public class ClassificacioController {
         return "classificacio/perpais";
     }
 
-    /*
     @RequestMapping(value="/addPerProva/{nom}")
     public String addClassifPerProva(Model model,
                                      @PathVariable String nom) {
@@ -148,5 +145,5 @@ public class ClassificacioController {
         nameUri = UriUtils.encodePath(nameUri, "UTF-8");
         return nameUri;
     }
-*/
+
 }
