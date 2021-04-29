@@ -1,9 +1,11 @@
 
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Crear nou Nadador</title>
     <meta charset="UTF-8" />
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="/css/natacio.css" th:href="@{/css/natacio.css}"/>
 </head>
 <body>
@@ -19,16 +21,21 @@
         <tr>
             <td><label>Num. Federat</label></td>
             <td><input type="text" maxlength="10" th:field="*{numFederat}" /></td>
+            <td th:if="${#fields.hasErrors('numFederat')}" th:errors="*{numFederat}" class="error"/>
+
         </tr>
         <tr>
             <td><label>Pais</label></td>
             <td><input type="text" maxlength="20" th:field="*{pais}" /></td>
+            <td th:if="${#fields.hasErrors('pais')}" th:errors="*{pais}" class="error"/>
+
         </tr>
         <tr>
             <td><label>Edat</label></td>
-            <td><input type="number" th:field="*{edat}" /></td>
-            <td><input type="text" th:field="*{edat}"
+            <td><input type="number" th:field="*{edat}"
                        th:errorclass="needcorrection"/></td>
+            <td th:if="${#fields.hasErrors('edat')}" th:errors="*{edat}" class="error"/>
+
         </tr>
         <tr>
             <td><label>Gènere</label></td>

@@ -22,6 +22,14 @@ public class NadadorValidator implements Validator {
             errors.rejectValue("nom", "obligatori",
                     "Cal introduir un valor");
 
+        if (nadador.getNumFederat().equals(""))
+            errors.rejectValue("numFederat", "obligatori",
+                    "Cal introduir un número de federat");
+
+        if (nadador.getPais().equals(""))
+            errors.rejectValue("pais", "obligatori",
+                    "Cal introduir un pais");
+
         // Afegeix ací la validació per a Edat > 15 anys
         if (nadador.getEdat() <= 15)
             errors.rejectValue("edat", "obligatori",
