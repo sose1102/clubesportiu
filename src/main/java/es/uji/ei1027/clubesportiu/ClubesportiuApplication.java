@@ -17,11 +17,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 @SpringBootApplication
 public class ClubesportiuApplication implements CommandLineRunner {
 
-	private static final Logger log = Logger.getLogger(ClubesportiuApplication .class.getName());
+	private static final Logger log = Logger.getLogger(ClubesportiuApplication.class.getName());
 
 	public static void main(String[] args) {
 		// Auto-configura l'aplicacio
-		new SpringApplicationBuilder(ClubesportiuApplication .class).run(args);
+		new SpringApplicationBuilder(ClubesportiuApplication.class).run(args);
 	}
 
 	@Override

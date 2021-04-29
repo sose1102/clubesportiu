@@ -54,6 +54,7 @@ public class ClassificacioController {
         }
         return "redirect:list";
     }*/
+
     @RequestMapping(value="/add", method=RequestMethod.POST)
     public String processAddClassif(
             @ModelAttribute("classificacio") Classificacio classificacio,
@@ -120,6 +121,7 @@ public class ClassificacioController {
         return "classificacio/perpais";
     }
 
+    /*
     @RequestMapping(value="/addPerProva/{nom}")
     public String addClassifPerProva(Model model,
                                      @PathVariable String nom) {
@@ -146,5 +148,5 @@ public class ClassificacioController {
         nameUri = UriUtils.encodePath(nameUri, "UTF-8");
         return nameUri;
     }
-
+*/
 }

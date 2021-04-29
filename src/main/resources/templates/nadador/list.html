@@ -27,7 +27,10 @@
     <tbody>
     <tr th:each="nadador: ${#lists.sort(nadadors, metodecomparador)}">
         <td th:text="${nadador.numFederat}"></td>
-        <td th:text="${nadador.nom}"></td>
+        <td th:text="${nadador.nom}"
+            th:class="${#strings.equals(nadador.genere, 'Femeni')} ?
+                font-weight-bold : font-italic"></td>
+
         <td th:text="${nadador.pais}"></td>
         <td th:text="${nadador.edat}"></td>
         <td th:text="${nadador.genere}"></td>

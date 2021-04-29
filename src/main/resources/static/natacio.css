@@ -20,3 +20,8 @@ h2 {
     color: red;
     font-size:80%
 }
+
+.needcorrection {
+    color: red;
+    background-color:yellow;
+}
