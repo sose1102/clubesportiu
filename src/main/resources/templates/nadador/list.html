@@ -9,6 +9,7 @@
 </head>
 <body>
 <h1>Llista de Nadadors</h1>
+<div th:replace="fragments/nav">...</div>
 <div th:if="${#lists.isEmpty(nadadors)}">
     No hi ha nadadors en la base de dades
 </div>

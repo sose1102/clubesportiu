@@ -2,6 +2,8 @@ package es.uji.ei1027.clubesportiu.controller;
 
 import javax.servlet.http.HttpSession;
 
+import es.uji.ei1027.clubesportiu.model.Nadador;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +18,21 @@ import org.springframework.validation.Validator;
 import es.uji.ei1027.clubesportiu.dao.UserDao;
 import es.uji.ei1027.clubesportiu.model.UserDetails;
 
-import java.util.Iterator;
+class UserValidator implements Validator {
+    @Override
+    public boolean supports(Class<?> cls) {
+        return UserDetails.class.isAssignableFrom(cls);
+    }
+    @Override
+    public void validate(Object obj, Errors errors) {
+        UserDetails user = (UserDetails) obj;
+        if (user.getUsername().trim().equals(""))
+            errors.rejectValue("username", "obligatori", "Cal introduir un nom d'usuari");
+
+        if (user.getPassword().trim().equals(""))
+            errors.rejectValue("password", "obligatori", "Cal introduir una contraseña");
+    }
+}
 
 @Controller
 public class LoginController {
@@ -47,11 +63,12 @@ public class LoginController {
         // Autenticats correctament.
         // Guardem les dades de l'usuari autenticat a la sessió
         session.setAttribute("user", user);
-        System.out.println(session.getAttributeNames().toString());
+        String nextUrl = (String) session.getAttribute("nextUrl");
+        session.removeAttribute("nextUrl");
+        if (!nextUrl.equals(""))
+            return "redirect:/" + nextUrl;
+
         // Torna a la pàgina principal
-        if(session.getAttribute("nextURL") == null){
-            return session.getAttribute("nextURL").toString();
-        }
         return "redirect:/";
     }
 

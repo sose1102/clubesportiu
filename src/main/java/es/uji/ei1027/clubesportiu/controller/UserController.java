@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import es.uji.ei1027.clubesportiu.dao.UserDao;
 import es.uji.ei1027.clubesportiu.model.UserDetails;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 @Controller
 @RequestMapping("/user")
@@ -25,11 +26,11 @@ public class UserController {
         if (session.getAttribute("user") == null)
         {
             model.addAttribute("user", new UserDetails());
+            session.setAttribute("nextUrl", "user/list");
             return "login";
         }
         model.addAttribute("users", userDao.listAllUsers());
-        String nextURL = "/user/list";
-        session.setAttribute("nextURL", nextURL);
-        return nextURL;
+        //session.setAttribute("nextURL", nextURL);
+        return "/user/list";
     }
 }
